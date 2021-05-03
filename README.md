@@ -12,6 +12,9 @@ in alura video he uses "npm start", but in my case is yarn start, and i don't no
 
 It's nice to remember that react come with hot reload.
 
+
+
+
 ---
 # Getting Started with Create React App (default readme)
 
