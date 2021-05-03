@@ -1,4 +1,19 @@
-# Getting Started with Create React App
+# Code of alura course and my annotations:
+
+## to create this  template type in terminal:
+    $ npx create-react-app alura-reactJs
+
+cool thing about this is: automatic initialize a git repo 
+
+## to start my application in dev mode run:
+    $ yarn start
+
+in alura video he uses "npm start", but in my case is yarn start, and i don't now why.
+
+It's nice to remember that react come with hot reload.
+
+---
+# Getting Started with Create React App (default readme)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
