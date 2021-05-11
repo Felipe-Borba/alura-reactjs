@@ -6,9 +6,15 @@ export default class NoteList extends Component {
     render() {
         return (
             <ul>
-                <li>
-                    <CardNote/>
-                </li>
+                {Array.of('Job', 'study', 'etc').map(category => {
+                    return (
+                        <li>
+                            <div>{category}</div>
+                            <CardNote />
+                        </li>
+                    );
+                })}
+
             </ul>
         )
     }
