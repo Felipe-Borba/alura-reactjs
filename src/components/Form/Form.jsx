@@ -9,7 +9,7 @@ export default class Form extends Component {
     
     handleTitleChange(event) {
         this.title = event.target.value
-        //console.log(event.target.value);
+        console.log(this.title);
     }
     
     render() {
@@ -19,7 +19,7 @@ export default class Form extends Component {
                     type='text'
                     placeholder='Title'
                     className='form-register_input'
-                    onChange={this.handleTitleChange}
+                    onChange={this.handleTitleChange.bind(this)}
                 />
                 <textarea
                     rows={15}
