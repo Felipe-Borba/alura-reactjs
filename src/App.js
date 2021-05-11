@@ -1,8 +1,16 @@
+import NoteList from "./components/NoteList";
 
 
 function App() {
   return (
-    <h1>ok</h1>
+    <section>
+      <form>
+        <input type='text' placeholder='Title' />
+        <textarea placeholder='write your note...'></textarea>
+        <button>create note</button>
+      </form>
+      <NoteList />
+    </section>
   );
 }
 
