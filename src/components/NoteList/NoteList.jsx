@@ -3,10 +3,10 @@ import CardNote from '../CardNote'
 import './NoteList.css'
 
 export default class NoteList extends Component {
-    render() {
+        render() {
         return (
             <ul className='note-list'>
-                {Array.of('Job', 'study', 'etc').map((category, index) => {
+                {this.props.notes.map((category, index) => {
                     return (
                         <li className='note-list_item' key={index} >
                             <CardNote />

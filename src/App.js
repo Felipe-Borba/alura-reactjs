@@ -5,15 +5,21 @@ import './assets/App.css'
 import './assets/index.css'
 
 export default class App extends Component {
+  constructor() {
+    super()
+    this.notes = []
+  }
+
   createNote(title, text) {
-    console.log('debug:',title,text)
+    //console.debug('debug:',title,text)
+    this.notes.push({title,text})
   }
 
   render() {
     return (
       <section className='content'>
-        <Form createNote={this.createNote} />
-        <NoteList />
+        <Form createNote={this.createNote.bind(this)} />
+        <NoteList notes={this.notes}/>
       </section>
     );
   }
