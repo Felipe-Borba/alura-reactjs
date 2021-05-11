@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Form from "./components/Form";
-import NoteList from "./components/NoteList";
+import Form from "./components/Form/Form";
+import NoteList from "./components/NoteList/NoteList";
 
 
 export default class App extends Component {
