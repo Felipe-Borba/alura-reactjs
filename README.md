@@ -1,14 +1,14 @@
-# Code of alura course and my annotations:
+# Code of alura course and my annotations
 
-## to create this  template type in terminal:
+## to create this  template type in terminal
 
 `````gcc
 npx create-react-app alura-reactJs
 `````
 
-cool thing about this is: automatic initialize a git repo 
+cool thing about this is: automatic initialize a git repo
 
-## to start my application in dev mode run:
+## to start my application in dev mode run
 
 ```gcc
 yarn start

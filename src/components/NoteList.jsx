@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import CardNote from './CardNote'
 
 
 export default class NoteList extends Component {
@@ -6,10 +7,7 @@ export default class NoteList extends Component {
         return (
             <ul>
                 <li>
-                    <header>
-                        <h3>Title</h3>
-                    </header>
-                    <p>Note</p>
+                    <CardNote/>
                 </li>
             </ul>
         )
