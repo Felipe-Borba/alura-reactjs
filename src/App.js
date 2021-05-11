@@ -7,19 +7,26 @@ import './assets/index.css'
 export default class App extends Component {
   constructor() {
     super()
-    this.notes = []
+    
+    this.state = {
+      notes: []
+    }
   }
 
   createNote(title, text) {
-    //console.debug('debug:',title,text)
-    this.notes.push({title,text})
+    const newNote = {title, text}
+    const newNoteArray = [...this.state.notes, newNote]
+    const newState = {
+      notes: newNoteArray
+    }
+    this.setState(newState)
   }
 
   render() {
     return (
       <section className='content'>
         <Form createNote={this.createNote.bind(this)} />
-        <NoteList notes={this.notes}/>
+        <NoteList notes={this.state.notes}/>
       </section>
     );
   }
