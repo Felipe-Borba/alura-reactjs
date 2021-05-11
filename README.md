@@ -17,3 +17,5 @@ yarn start
 in alura video he uses "npm start", but in my case is yarn start, and i don't now why.
 
 It's nice to remember that react come with hot reload.
+
+[Google icons](https://fonts.google.com/icons)
