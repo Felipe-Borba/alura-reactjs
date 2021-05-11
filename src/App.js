@@ -5,10 +5,14 @@ import './assets/App.css'
 import './assets/index.css'
 
 export default class App extends Component {
+  createNote(title, text) {
+    console.log('debug:',title,text)
+  }
+
   render() {
     return (
       <section className='content'>
-        <Form />
+        <Form createNote={this.createNote} />
         <NoteList />
       </section>
     );
