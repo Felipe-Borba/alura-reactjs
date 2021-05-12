@@ -18,4 +18,14 @@ in alura video he uses "npm start", but in my case is yarn start, and i don't no
 
 It's nice to remember that react come with hot reload.
 
-[Google icons](https://fonts.google.com/icons)
+## Useful stuff
+
+NPM - Manages packages but doesn't make life easy executing any.
+
+NPX - A tool for executing Node packages.
+
+### icons [Google icons](https://fonts.google.com/icons)
+
+### To help format code is nice to use [JSLinter](https://cursos.alura.com.br/js-linter-c304)
+
+In this link is a video showing how to setup.
