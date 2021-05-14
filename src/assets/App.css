@@ -9,3 +9,7 @@
     --background: #ffffff;
     --background-details: #ececec;
   }
+
+.main-content{
+  flex-grow: 3;
+}

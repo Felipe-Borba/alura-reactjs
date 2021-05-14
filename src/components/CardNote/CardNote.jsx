@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import './CardNote.css'
-import {ReactComponent as DeleteSVG} from '../../assets/delete.svg'
+import { ReactComponent as DeleteSVG } from '../../assets/delete.svg'
 
 export default class CardNote extends Component {
 
-    erase(){
+    erase() {
         this.props.deleteNote(this.props.index);
     }
 
@@ -13,7 +13,7 @@ export default class CardNote extends Component {
             <section className='card-note'>
                 <header className='card-note_header'>
                     <h3 className='card-note_title'>{this.props.title}</h3>
-                    <DeleteSVG onClick={this.erase.bind(this)}/>
+                    <DeleteSVG onClick={this.erase.bind(this)} />
                 </header>
                 <p className='card-note_text'>{this.props.text}</p>
             </section>
