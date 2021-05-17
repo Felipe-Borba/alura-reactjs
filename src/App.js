@@ -10,7 +10,8 @@ export default class App extends Component {
     super()
 
     this.state = {
-      notes: []
+      notes: [],
+      category: ['All']
     }
   }
 
@@ -18,6 +19,7 @@ export default class App extends Component {
     const newNote = { title, text }
     const newNoteArray = [...this.state.notes, newNote]
     const newState = {
+      ...this.state,
       notes: newNoteArray
     }
     this.setState(newState)
@@ -29,12 +31,24 @@ export default class App extends Component {
     this.setState({ notes: noteArray });
   }
 
+  addCategory(name) {
+    const newCategoryArray = [...this.state.category, name];
+    const newState = {
+      ...this.state,
+      category: newCategoryArray
+    }
+    this.setState(newState)
+  }
+
   render() {
     return (
       <section className='content'>
         <Form createNote={this.createNote.bind(this)} />
         <main className='main-content'>
-          <CategoryList />
+          <CategoryList 
+          addCategory={this.addCategory.bind(this)}
+          category={this.state.category} 
+          />
           <NoteList
             notes={this.state.notes}
             deleteNote={this.deleteNote.bind(this)}
