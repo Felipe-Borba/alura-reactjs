@@ -33,6 +33,11 @@ export default class Form extends Component {
                     className='form-register_input'
                     onChange={this._handleTitleChange.bind(this)}
                 />
+                <select className='form-register_input'>
+                    {this.props.category.map((category) => {
+                        return <option>{category}</option>
+                    })}
+                    </select>
                 <textarea
                     rows={15}
                     placeholder='write your note...'

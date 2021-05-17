@@ -43,11 +43,14 @@ export default class App extends Component {
   render() {
     return (
       <section className='content'>
-        <Form createNote={this.createNote.bind(this)} />
+        <Form
+          category={this.state.category}
+          createNote={this.createNote.bind(this)}
+        />
         <main className='main-content'>
-          <CategoryList 
-          addCategory={this.addCategory.bind(this)}
-          category={this.state.category} 
+          <CategoryList
+            addCategory={this.addCategory.bind(this)}
+            category={this.state.category}
           />
           <NoteList
             notes={this.state.notes}
