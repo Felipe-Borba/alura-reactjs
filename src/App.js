@@ -1,13 +1,12 @@
-import { Fragment } from 'react';
+import { Container } from '@material-ui/core';
 import './App.css';
 import SubscribeForm from './components/SubscribeForm/SubscribeForm.jsx';
 
 function App() {
   return (
-    <Fragment>
+    <Container component='article' maxWidth='sm'>
       <SubscribeForm />
-
-    </Fragment>
+    </Container>
   );
 }
 

@@ -5,11 +5,11 @@ import React from 'react';
 function SubscribeForm() {
     return (
         <form>
-            <TextField id='firstName' label='First name' variant='outlined' fullWidth/>
+            <TextField id='firstName' label='First name' variant='outlined' fullWidth margin='normal' />
 
-            <TextField id='secondName' label='Second name' variant='outlined' fullWidth/>
+            <TextField id='secondName' label='Second name' variant='outlined' fullWidth margin='normal' />
 
-            <TextField id='cpf' label='CPF' variant='outlined' fullWidth/>
+            <TextField id='cpf' label='CPF' variant='outlined' fullWidth margin='normal' />
 
             <label>Promotions</label>
             <input type='checkbox' />
