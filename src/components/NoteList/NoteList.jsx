@@ -14,6 +14,7 @@ export default class NoteList extends Component {
                                 text={card.text}
                                 deleteNote={this.props.deleteNote}
                                 index={index}
+                                category={card.category}
                             />
                         </li>
                     );

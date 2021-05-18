@@ -7,22 +7,22 @@ import CategoryList from './components/CategoryList'
 
 export default class App extends Component {
   constructor() {
-    super()
+    super();
 
     this.state = {
       notes: [],
-      category: ['All']
-    }
+      category: ['without category']
+    };
   }
 
-  createNote(title, text) {
-    const newNote = { title, text }
-    const newNoteArray = [...this.state.notes, newNote]
+  createNote(title, text, category) {
+    const newNote = { title, text, category };
+    const newNoteArray = [...this.state.notes, newNote];
     const newState = {
       ...this.state,
       notes: newNoteArray
-    }
-    this.setState(newState)
+    };
+    this.setState(newState);
   }
 
   deleteNote(index) {
