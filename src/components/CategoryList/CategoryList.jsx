@@ -2,6 +2,14 @@ import React, { Component } from 'react'
 import './CategoryList.css'
 
 export default class CategoryList extends Component {
+    componentDidMount() {
+        this.props.category.subscribe(this._newCategory.bind(this));
+    }
+
+    _newCategory(category) {
+        console.log(category);
+    }
+
     _handler(e) {
         if (e.key === 'Enter') {
             let categoryValue = e.target.value;
@@ -13,7 +21,7 @@ export default class CategoryList extends Component {
         return (
             <section className='category-list'>
                 <ul className='category-list_list'>
-                    {this.props.category.map((category, index) => {
+                    {this.props.category.category.map((category, index) => {
                         return <li key={index} className='category-list_item'>{category}</li>
                     })}
                 </ul>

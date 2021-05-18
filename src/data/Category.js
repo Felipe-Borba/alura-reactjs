@@ -6,6 +6,7 @@ export default class Category {
 
     addCategory(name) {
         this.category.push(name);
+        this.notify();
     }
 
     subscribe(func) {

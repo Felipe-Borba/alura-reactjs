@@ -40,7 +40,7 @@ export default class Form extends Component {
                     onChange={this._handleTitleChange.bind(this)}
                 />
                 <select className='form-register_input' onChange={this._handleCategoryChange.bind(this)}>
-                    {this.props.category.map((category) => {
+                    {this.props.category.category.map((category) => {
                         return <option>{category}</option>
                     })}
                 </select>

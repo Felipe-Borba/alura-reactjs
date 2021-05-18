@@ -20,17 +20,17 @@ export default class App extends Component {
     return (
       <section className='content'>
         <Form
-          category={this.category.category}
-          createNote={this.notes.createNote}
+          category={this.category}
+          createNote={this.notes.createNote.bind(this.notes)}
         />
         <main className='main-content'>
           <CategoryList
-            addCategory={this.category.addCategory}
-            category={this.category.category}
+            addCategory={this.category.addCategory.bind(this.category)}
+            category={this.category}
           />
           <NoteList
             notes={this.notes.notes}
-            deleteNote={this.notes.deleteNote}
+            deleteNote={this.notes.deleteNote.bind(this.notes)}
           />
         </main>
 
