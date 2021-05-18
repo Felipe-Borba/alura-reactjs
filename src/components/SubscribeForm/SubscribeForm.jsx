@@ -1,18 +1,15 @@
-import { Button } from '@material-ui/core';
+import { Button, TextField } from '@material-ui/core';
 import React from 'react';
 
 
 function SubscribeForm() {
     return (
         <form>
-            <label>First name</label>
-            <input type='text' />
+            <TextField id='firstName' label='First name' variant='outlined' fullWidth/>
 
-            <label>Second name</label>
-            <input type='text' />
+            <TextField id='secondName' label='Second name' variant='outlined' fullWidth/>
 
-            <label>CPF</label>
-            <input type='text' />
+            <TextField id='cpf' label='CPF' variant='outlined' fullWidth/>
 
             <label>Promotions</label>
             <input type='checkbox' />
@@ -22,7 +19,7 @@ function SubscribeForm() {
 
             <Button type='submit' variant="contained" color="primary">
                 Submit
-                </Button>
+            </Button>
 
         </form>
     );

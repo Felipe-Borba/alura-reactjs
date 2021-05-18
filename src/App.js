@@ -1,12 +1,13 @@
+import { Fragment } from 'react';
 import './App.css';
 import SubscribeForm from './components/SubscribeForm/SubscribeForm.jsx';
 
 function App() {
   return (
-    <div>
+    <Fragment>
       <SubscribeForm />
 
-    </div>
+    </Fragment>
   );
 }
 
