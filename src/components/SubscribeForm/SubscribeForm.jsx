@@ -1,4 +1,4 @@
-import { Button, TextField } from '@material-ui/core';
+import { Button, FormControlLabel, Switch, TextField } from '@material-ui/core';
 import React from 'react';
 
 
@@ -11,12 +11,14 @@ function SubscribeForm() {
 
             <TextField id='cpf' label='CPF' variant='outlined' fullWidth margin='normal' />
 
-            <label>Promotions</label>
-            <input type='checkbox' />
+            <FormControlLabel label='Promotions' control={
+                <Switch name='Promotions' defaultChecked color='primary' />
+            } />
 
-            <label>News</label>
-            <input type='checkbox' />
-
+            <FormControlLabel label='News' control={
+                <Switch name='News' defaultChecked color='primary' />
+            } />
+            
             <Button type='submit' variant="contained" color="primary">
                 Submit
             </Button>
