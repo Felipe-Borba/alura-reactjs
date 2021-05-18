@@ -29,7 +29,7 @@ export default class App extends Component {
             category={this.category}
           />
           <NoteList
-            notes={this.notes.notes}
+            notes={this.notes}
             deleteNote={this.notes.deleteNote.bind(this.notes)}
           />
         </main>

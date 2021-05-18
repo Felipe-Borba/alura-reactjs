@@ -6,7 +6,16 @@ export default class Form extends Component {
         super(props);
         this.title = '';
         this.text = '';
-        this.category = this.props.category;
+        this.category = 'without category';
+        this.state = { category: [] }
+    }
+
+    componentDidMount() {
+        this.props.category.subscribe(this._newCategory.bind(this));
+    }
+
+    _newCategory(category) {
+        this.setState({ ...this.state, category });
     }
 
     _handleTitleChange(event) {
@@ -40,8 +49,8 @@ export default class Form extends Component {
                     onChange={this._handleTitleChange.bind(this)}
                 />
                 <select className='form-register_input' onChange={this._handleCategoryChange.bind(this)}>
-                    {this.props.category.category.map((category) => {
-                        return <option>{category}</option>
+                    {this.state.category.map((category,index) => {
+                        return <option key={index}>{category}</option>
                     })}
                 </select>
                 <textarea

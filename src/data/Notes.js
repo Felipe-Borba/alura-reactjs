@@ -7,10 +7,12 @@ export default class NoteArray {
     createNote(title, text, category) {
         const newNote = new note(title, text, category);
         this.notes.push(newNote);
+        this.notify();
     }
 
     deleteNote(index) {
         this.notes.splice(index, 1);
+        this.notify();
     }
 
     subscribe(func) {

@@ -1,6 +1,6 @@
 export default class Category {
     constructor() {
-        this.category = ['without category'];
+        this.category = [];
         this._subscribers = [];
     }
 
