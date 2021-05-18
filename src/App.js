@@ -1,60 +1,36 @@
 import React, { Component } from 'react'
 import Form from './components/Form'
 import NoteList from './components/NoteList'
+import CategoryList from './components/CategoryList'
+import Category from './data/Category'
+import NoteArray from './data/Notes'
+
 import './assets/App.css'
 import './assets/index.css'
-import CategoryList from './components/CategoryList'
 
 export default class App extends Component {
   constructor() {
     super();
-
-    this.state = {
-      notes: [],
-      category: ['without category']
-    };
+    this.category = new Category();
+    this.notes = new NoteArray();
   }
 
-  createNote(title, text, category) {
-    const newNote = { title, text, category };
-    const newNoteArray = [...this.state.notes, newNote];
-    const newState = {
-      ...this.state,
-      notes: newNoteArray
-    };
-    this.setState(newState);
-  }
-
-  deleteNote(index) {
-    let noteArray = this.state.notes;
-    noteArray.splice(index, 1);
-    this.setState({ notes: noteArray });
-  }
-
-  addCategory(name) {
-    const newCategoryArray = [...this.state.category, name];
-    const newState = {
-      ...this.state,
-      category: newCategoryArray
-    }
-    this.setState(newState)
-  }
 
   render() {
     return (
       <section className='content'>
         <Form
-          category={this.state.category}
-          createNote={this.createNote.bind(this)}
+          category={this.category.category}
+          createNote={this.notes.createNote}
         />
         <main className='main-content'>
           <CategoryList
-            addCategory={this.addCategory.bind(this)}
-            category={this.state.category}
+            addCategory={this.category.addCategory}
+            category={this.category.category}
           />
           <NoteList
-            notes={this.state.notes}
-            deleteNote={this.deleteNote.bind(this)}
+            notes={this.notes.notes}
+            deleteNote={this.notes.deleteNote}
           />
         </main>
 

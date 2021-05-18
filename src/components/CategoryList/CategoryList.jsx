@@ -3,7 +3,7 @@ import './CategoryList.css'
 
 export default class CategoryList extends Component {
     _handler(e) {
-        if (e.key == 'Enter') {
+        if (e.key === 'Enter') {
             let categoryValue = e.target.value;
             this.props.addCategory(categoryValue);
         }
