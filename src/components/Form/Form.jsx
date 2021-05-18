@@ -7,11 +7,17 @@ export default class Form extends Component {
         this.title = '';
         this.text = '';
         this.category = 'without category';
-        this.state = { category: [] }
+        this.state = { category: [] };
+
+        this._newCategory = this._newCategory.bind(this);
     }
 
     componentDidMount() {
-        this.props.category.subscribe(this._newCategory.bind(this));
+        this.props.category.subscribe(this._newCategory);
+    }
+
+    componentWillUnmount() {
+        this.props.category.unsubscribe(this._newCategory);
     }
 
     _newCategory(category) {
@@ -19,22 +25,24 @@ export default class Form extends Component {
     }
 
     _handleTitleChange(event) {
+        event.stopPropagation();
         this.title = event.target.value;
     }
 
     _handleTextChange(event) {
-        this.text = event.target.value;
-    }
-
-    _createNote(event) {
-        event.preventDefault();
         event.stopPropagation();
-        this.props.createNote(this.title, this.text, this.category);
+        this.text = event.target.value;
     }
 
     _handleCategoryChange(event) {
         event.stopPropagation();
         this.category = event.target.value;
+    }
+    
+    _createNote(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        this.props.createNote(this.title, this.text, this.category);
     }
 
     render() {
@@ -49,7 +57,8 @@ export default class Form extends Component {
                     onChange={this._handleTitleChange.bind(this)}
                 />
                 <select className='form-register_input' onChange={this._handleCategoryChange.bind(this)}>
-                    {this.state.category.map((category,index) => {
+                    <option>without category</option>
+                    {this.state.category.map((category, index) => {
                         return <option key={index}>{category}</option>
                     })}
                 </select>

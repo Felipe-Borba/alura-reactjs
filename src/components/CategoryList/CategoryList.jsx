@@ -4,11 +4,16 @@ import './CategoryList.css'
 export default class CategoryList extends Component {
     constructor() {
         super();
-        this.state = { category: [] }
+        this.state = { category: [] };
+        this._newCategory = this._newCategory.bind(this);
     }
 
     componentDidMount() {
-        this.props.category.subscribe(this._newCategory.bind(this));
+        this.props.category.subscribe(this._newCategory);
+    }
+
+    componentWillUnmount(){
+        this.props.category.unsubscribe(this._newCategory);
     }
 
     _newCategory(category) {
