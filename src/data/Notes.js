@@ -1,6 +1,7 @@
 export default class NoteArray {
     constructor() {
         this.notes = [];
+        this._subscribers = [];
     }
 
     createNote(title, text, category) {
@@ -10,6 +11,14 @@ export default class NoteArray {
 
     deleteNote(index) {
         this.notes.splice(index, 1);
+    }
+
+    subscribe(func) {
+        this._subscribers.push(func);
+    }
+
+    notify() {
+        this._subscribers.forEach(func => func(this.notes));
     }
 
 }

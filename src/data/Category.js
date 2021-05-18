@@ -1,11 +1,18 @@
 export default class Category {
     constructor() {
         this.category = ['without category'];
+        this._subscribers = [];
     }
 
     addCategory(name) {
         this.category.push(name);
     }
 
+    subscribe(func) {
+        this._subscribers.push(func);
+    }
 
+    notify() {
+        this._subscribers.forEach(func => func(this.category));
+    }
 }
