@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Address from './Address';
 import PersonalData from './PersonalData';
 import UserData from './UserData';
@@ -6,9 +6,23 @@ import UserData from './UserData';
 
 function SubscribeForm({ submitForm }) {
     const [currentStep, setCurrentStep] = useState(0);
-    const pages = [<UserData nextStep={nextStep} />, <PersonalData nextStep={nextStep} />, <Address nextStep={nextStep} />];
+    const [formData, setFormData] = useState({});
+    const pages = [
+        <UserData nextStep={collectData} />,
+        <PersonalData nextStep={collectData} />,
+        <Address nextStep={collectData} />
+    ];
+    
+    useEffect(() => {
+        console.log(formData);
+    });
 
-    function nextStep(data) {
+    function collectData(data) {
+        setFormData({...formData, ...data});
+        nextStep();
+    }
+
+    function nextStep() {
         setCurrentStep(currentStep + 1);
     }
 
