@@ -2,13 +2,13 @@ import { Button, FormControlLabel, Switch, TextField } from '@material-ui/core';
 import React, { useState } from 'react';
 
 
-function SubscribeForm({ submitForm }) {
+function SubscribeForm({ submitForm, checkCpf }) {
     const [firstName, setFirstName] = useState();
     const [secondName, setSecondName] = useState();
     const [cpf, setCpf] = useState();
     const [promotions, setPromotions] = useState(true);
     const [news, setNews] = useState(true);
-    const [error, serError] = useState({ cpf: { status: true, text: '' } });
+    const [error, setError] = useState({ cpf: { status: true, text: '' } });
 
     return (
         <form onSubmit={event => {
@@ -44,8 +44,8 @@ function SubscribeForm({ submitForm }) {
                 name={cpf}
                 onChange={event => setCpf(event.target.value)}
                 error={!error.cpf.status}
-                helperText={ error.cpf.text}
-                onBlur={event => false}
+                helperText={error.cpf.text}
+                onBlur={event => setError({ cpf: checkCpf(event.target.value) })}
             />
 
             <FormControlLabel label='Promotions' control={
