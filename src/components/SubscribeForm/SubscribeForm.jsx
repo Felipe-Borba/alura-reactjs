@@ -5,9 +5,16 @@ import React, { useState } from 'react';
 function SubscribeForm() {
     const [firstName, setFirstName] = useState();
     const [secondName, setSecondName] = useState();
+    const [cpf, setCpf] = useState();
+    const [promotions, setPromotions] = useState(true);
+    const [news, setNews] = useState(true);
+
 
     return (
-        <form onSubmit={event => {console.log(firstName,secondName)}}>
+        <form onSubmit={event => {
+            event.preventDefault();
+            console.log(firstName, secondName)
+        }}>
             <TextField
                 id='firstName'
                 label='First name'
@@ -25,7 +32,7 @@ function SubscribeForm() {
                 fullWidth
                 margin='normal'
                 name={secondName}
-                onChange={event => setSecondName(event.target.value)}           
+                onChange={event => setSecondName(event.target.value)}
             />
 
             <TextField
@@ -34,14 +41,26 @@ function SubscribeForm() {
                 variant='outlined'
                 fullWidth
                 margin='normal'
+                name={cpf}
+                onChange={event => setCpf(event.target.value)}
             />
 
             <FormControlLabel label='Promotions' control={
-                <Switch name='Promotions' defaultChecked color='primary' />
+                <Switch
+                    name='Promotions'
+                    color='primary'
+                    onChange={event => setPromotions(event.target.checked)}
+                    checked={promotions}
+                />
             } />
 
             <FormControlLabel label='News' control={
-                <Switch name='News' defaultChecked color='primary' />
+                <Switch
+                    name='News'
+                    color='primary'
+                    onChange={event => setNews(event.target.checked)}
+                    checked={news}
+                />
             } />
 
             <Button type='submit' variant="contained" color="primary">
