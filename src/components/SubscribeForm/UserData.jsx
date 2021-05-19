@@ -1,12 +1,14 @@
 import { Button, TextField } from '@material-ui/core'
-import React from 'react'
+import React, { useState } from 'react'
 
 function UserData({ nextStep }) {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
     return (
         <form onSubmit={event => {
             event.preventDefault();
-            nextStep();
+            nextStep({ email, password });
         }}>
             <TextField
                 id='email'
@@ -15,7 +17,9 @@ function UserData({ nextStep }) {
                 variant='outlined'
                 margin='normal'
                 fullWidth
-            //require //TODO uncomment 
+                //require //TODO uncomment 
+                value={email}
+                onChange={event => setEmail(event.target.value)}
             />
 
             <TextField
@@ -25,7 +29,9 @@ function UserData({ nextStep }) {
                 variant='outlined'
                 margin='normal'
                 fullWidth
-            //require //TODO uncomment
+                //require //TODO uncomment
+                value={password}
+                onChange={event => setPassword(event.target.value)}
             />
 
             <Button type='submit' variant="contained" color="primary" >

@@ -21,7 +21,7 @@ function PersonalData({ nextStep }) {
     return (
         <form onSubmit={event => {
             event.preventDefault();
-            nextStep();
+            nextStep({ firstName, secondName, cpf, promotions, news, error });
         }}>
             <TextField
                 id='firstName'
