@@ -2,13 +2,21 @@ import { Button, FormControlLabel, Switch, TextField } from '@material-ui/core';
 import React, { useState } from 'react';
 
 
-function SubscribeForm({ submitForm, checkCpf }) {
+function SubscribeForm({ submitForm }) {
     const [firstName, setFirstName] = useState();
     const [secondName, setSecondName] = useState();
     const [cpf, setCpf] = useState();
     const [promotions, setPromotions] = useState(true);
     const [news, setNews] = useState(true);
     const [error, setError] = useState({ cpf: { status: true, text: '' } });
+
+    const checkCpf = (cpf) => {
+        if (cpf.length !== 11) {
+            setError({ cpf: { status: false, text: 'CPF must have 11 digits.' } });
+        } else {
+            setError({ cpf: { status: true, text: '' } });
+        }
+    }
 
     return (
         <form onSubmit={event => {
@@ -45,7 +53,7 @@ function SubscribeForm({ submitForm, checkCpf }) {
                 onChange={event => setCpf(event.target.value)}
                 error={!error.cpf.status}
                 helperText={error.cpf.text}
-                onBlur={event => setError({ cpf: checkCpf(event.target.value) })}
+                onBlur={event => checkCpf(event.target.value)}
             />
 
             <FormControlLabel label='Promotions' control={
