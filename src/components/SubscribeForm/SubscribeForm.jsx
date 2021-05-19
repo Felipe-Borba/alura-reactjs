@@ -1,4 +1,3 @@
-import { Typography } from '@material-ui/core';
 import React, { useState } from 'react';
 import Address from './Address';
 import PersonalData from './PersonalData';
@@ -7,30 +6,15 @@ import UserData from './UserData';
 
 function SubscribeForm({ submitForm }) {
     const [currentStep, setCurrentStep] = useState(0);
+    const pages = [<UserData nextStep={nextStep} />, <PersonalData nextStep={nextStep} />, <Address submitForm={submitForm} />];
 
-    function nextStep(){
-        setCurrentStep(currentStep+1);
-    }
-
-    function currentForm(currentStep) {
-        switch (currentStep) {
-            case 0:
-                return <UserData nextStep={nextStep} />;
-    
-            case 1:
-                return <PersonalData nextStep={nextStep} />;
-    
-            case 2:
-                return <Address submitForm={submitForm}/>;
-    
-            default:
-                return <Typography>Select form error</Typography>;
-        }
+    function nextStep() {
+        setCurrentStep(currentStep + 1);
     }
 
     return (
         <>
-            {currentForm(currentStep)}
+            {pages[currentStep]}
         </>
     );
 }
