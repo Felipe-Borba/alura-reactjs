@@ -8,16 +8,20 @@ import UserData from './UserData';
 function SubscribeForm({ submitForm }) {
     const [currentStep, setCurrentStep] = useState(0);
 
+    function nextStep(){
+        setCurrentStep(currentStep+1);
+    }
+
     function currentForm(currentStep) {
         switch (currentStep) {
             case 0:
-                return <UserData />;
+                return <UserData nextStep={nextStep} />;
     
             case 1:
-                return <PersonalData submitForm={submitForm} />;
+                return <PersonalData nextStep={nextStep} />;
     
             case 2:
-                return <Address />;
+                return <Address submitForm={submitForm}/>;
     
             default:
                 return <Typography>Select form error</Typography>;

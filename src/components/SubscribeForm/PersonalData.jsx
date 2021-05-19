@@ -2,7 +2,7 @@ import { Button, FormControlLabel, Switch, TextField } from '@material-ui/core';
 import React, { useState } from 'react';
 
 
-function PersonalData({ submitForm }) {
+function PersonalData({ nextStep }) {
     const [firstName, setFirstName] = useState();
     const [secondName, setSecondName] = useState();
     const [cpf, setCpf] = useState();
@@ -21,7 +21,7 @@ function PersonalData({ submitForm }) {
     return (
         <form onSubmit={event => {
             event.preventDefault();
-            submitForm({ firstName, secondName, cpf, promotions, news });
+            nextStep();
         }}>
             <TextField
                 id='firstName'

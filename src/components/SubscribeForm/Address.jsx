@@ -1,9 +1,12 @@
 import { Button, TextField } from '@material-ui/core'
 import React from 'react'
 
-function Address() {
+function Address({submitForm}) {
     return (
-        <form>
+        <form onSubmit={event => {
+            event.preventDefault();
+            submitForm({debug:'test'});
+        }}>
             <TextField
                 id='cep'
                 label='cep'
@@ -45,7 +48,7 @@ function Address() {
                 margin='normal'
             />
 
-            <Button id='submit' variant="contained" color="primary" fullWidth >
+            <Button type='submit' variant="contained" color="primary" fullWidth >
                 Finalize / Submit
             </Button>
         </form>

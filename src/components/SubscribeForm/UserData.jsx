@@ -1,17 +1,21 @@
 import { Button, TextField } from '@material-ui/core'
 import React from 'react'
 
-function UserData() {
+function UserData({ nextStep }) {
 
     return (
-        <form>
+        <form onSubmit={event => {
+            event.preventDefault();
+            nextStep();
+        }}>
             <TextField
                 id='email'
                 label='email'
                 type='email'
                 variant='outlined'
-                fullWidth
                 margin='normal'
+                fullWidth
+            //require //TODO uncomment 
             />
 
             <TextField
@@ -19,11 +23,12 @@ function UserData() {
                 label='password'
                 type='password'
                 variant='outlined'
-                fullWidth
                 margin='normal'
+                fullWidth
+            //require //TODO uncomment
             />
 
-            <Button id='submit' variant="contained" color="primary" >
+            <Button type='submit' variant="contained" color="primary" >
                 Submit
             </Button>
 
