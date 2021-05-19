@@ -4,7 +4,7 @@ import React from 'react'
 function UserData() {
 
     return (
-        <div>
+        <form>
             <TextField
                 id='email'
                 label='email'
@@ -27,7 +27,7 @@ function UserData() {
                 Submit
             </Button>
 
-        </div>
+        </form>
     )
 }
 

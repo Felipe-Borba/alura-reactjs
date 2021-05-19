@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Address from './Address';
 import PersonalData from './PersonalData';
 import UserData from './UserData';
 
@@ -10,6 +11,7 @@ function SubscribeForm({ submitForm }) {
         <>
             <PersonalData submitForm={submitForm} />
             <UserData />
+            <Address />
         </>
     );
 }
