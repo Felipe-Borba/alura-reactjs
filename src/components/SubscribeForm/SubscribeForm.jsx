@@ -8,6 +8,7 @@ function SubscribeForm({ submitForm }) {
     const [cpf, setCpf] = useState();
     const [promotions, setPromotions] = useState(true);
     const [news, setNews] = useState(true);
+    const [error, serError] = useState({ cpf: { status: true, text: '' } });
 
     return (
         <form onSubmit={event => {
@@ -42,6 +43,9 @@ function SubscribeForm({ submitForm }) {
                 margin='normal'
                 name={cpf}
                 onChange={event => setCpf(event.target.value)}
+                error={!error.cpf.status}
+                helperText={ error.cpf.text}
+                onBlur={event => false}
             />
 
             <FormControlLabel label='Promotions' control={
