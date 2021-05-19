@@ -7,9 +7,13 @@ function App() {
   return (
     <Container component='article' maxWidth='sm'>
       <Typography variant='h2' align='center'>Registration</Typography>
-      <SubscribeForm />
+      <SubscribeForm submitForm={dispatchForm} />
     </Container>
   );
+}
+
+function dispatchForm(data) {
+  console.log(data);
 }
 
 export default App;

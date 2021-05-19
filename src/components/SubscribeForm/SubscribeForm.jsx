@@ -2,18 +2,17 @@ import { Button, FormControlLabel, Switch, TextField } from '@material-ui/core';
 import React, { useState } from 'react';
 
 
-function SubscribeForm() {
+function SubscribeForm({ submitForm }) {
     const [firstName, setFirstName] = useState();
     const [secondName, setSecondName] = useState();
     const [cpf, setCpf] = useState();
     const [promotions, setPromotions] = useState(true);
     const [news, setNews] = useState(true);
 
-
     return (
         <form onSubmit={event => {
             event.preventDefault();
-            console.log(firstName, secondName)
+            submitForm({ firstName, secondName, cpf, promotions, news });
         }}>
             <TextField
                 id='firstName'
