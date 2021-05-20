@@ -9,9 +9,9 @@ function SubscribeForm({ submitForm, validation }) {
     const [currentStep, setCurrentStep] = useState(0);
     const [formData, setFormData] = useState({});
     const pages = [
-        <UserData nextStep={collectData} validation={validation} />,
-        <PersonalData nextStep={collectData} validation={validation} />,
-        <Address nextStep={collectData} validation={validation} />,
+        <UserData nextStep={collectData} />,
+        <PersonalData nextStep={collectData} />,
+        <Address nextStep={collectData} />,
         <Typography variant='h5'>thanks for subscribing</Typography>
     ];
 

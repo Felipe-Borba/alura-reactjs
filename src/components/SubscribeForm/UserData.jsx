@@ -1,10 +1,12 @@
 import { Button, TextField } from '@material-ui/core'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import RegisterContext from '../../context/RegisterContext';
 
-function UserData({ nextStep, validation }) {
+function UserData({ nextStep }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState({ password: { status: true, text: '' } });
+    const validation = useContext(RegisterContext);
 
     function check(event) {
         const { id, value } = event.target;

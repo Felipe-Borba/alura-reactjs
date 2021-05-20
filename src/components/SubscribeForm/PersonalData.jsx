@@ -1,14 +1,16 @@
 import { Button, FormControlLabel, Switch, TextField } from '@material-ui/core';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import RegisterContext from '../../context/RegisterContext';
 
 
-function PersonalData({ nextStep, validation }) {
+function PersonalData({ nextStep }) {
     const [firstName, setFirstName] = useState();
     const [secondName, setSecondName] = useState();
     const [cpf, setCpf] = useState();
     const [promotions, setPromotions] = useState(true);
     const [news, setNews] = useState(true);
     const [error, setError] = useState({ cpf: { status: true, text: '' } });
+    const validation = useContext(RegisterContext);
 
     function check(event) {
         const { id, value } = event.target;
