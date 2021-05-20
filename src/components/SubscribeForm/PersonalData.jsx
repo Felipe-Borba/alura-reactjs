@@ -1,6 +1,7 @@
 import { Button, FormControlLabel, Switch, TextField } from '@material-ui/core';
 import React, { useContext, useState } from 'react';
 import RegisterContext from '../../context/RegisterContext';
+import useError from '../../hooks/useError';
 
 
 function PersonalData({ nextStep }) {
@@ -9,29 +10,13 @@ function PersonalData({ nextStep }) {
     const [cpf, setCpf] = useState();
     const [promotions, setPromotions] = useState(true);
     const [news, setNews] = useState(true);
-    const [error, setError] = useState({ cpf: { status: true, text: '' } });
     const validation = useContext(RegisterContext);
-
-    function check(event) {
-        const { id, value } = event.target;
-        let newSate = { ...error };
-        newSate[id] = validation[id](value);
-        setError(newSate);
-    }
-
-    function verify() {
-        for (let field in error) {
-            if (!error[field].status) {
-                return false;
-            }
-        }
-        return true;
-    }
+    const [error, UpdateError, verifyAnyError] = useError(validation);
 
     return (
         <form onSubmit={event => {
             event.preventDefault();
-            if (verify()) {
+            if (verifyAnyError()) {
                 nextStep({ firstName, secondName, cpf, promotions, news, error });
             }
         }}>
@@ -67,7 +52,7 @@ function PersonalData({ nextStep }) {
                 onChange={event => setCpf(event.target.value)}
                 error={!error.cpf.status}
                 helperText={error.cpf.text}
-                onBlur={check}
+                onBlur={UpdateError}
             />
 
             <FormControlLabel label='Promotions' control={
