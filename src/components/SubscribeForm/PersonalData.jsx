@@ -2,7 +2,7 @@ import { Button, FormControlLabel, Switch, TextField } from '@material-ui/core';
 import React, { useState } from 'react';
 
 
-function PersonalData({ nextStep }) {
+function PersonalData({ nextStep, validation }) {
     const [firstName, setFirstName] = useState();
     const [secondName, setSecondName] = useState();
     const [cpf, setCpf] = useState();
@@ -10,12 +10,11 @@ function PersonalData({ nextStep }) {
     const [news, setNews] = useState(true);
     const [error, setError] = useState({ cpf: { status: true, text: '' } });
 
-    const checkCpf = (cpf) => {
-        if (cpf.length !== 11) {
-            setError({ cpf: { status: false, text: 'CPF must have 11 digits.' } });
-        } else {
-            setError({ cpf: { status: true, text: '' } });
-        }
+    function check(event) {
+        const { id, value } = event.target;
+        let newSate = {...error};
+        newSate[id] = validation[id](value);
+        setError(newSate);
     }
 
     return (
@@ -49,11 +48,11 @@ function PersonalData({ nextStep }) {
                 variant='outlined'
                 fullWidth
                 margin='normal'
-                name={cpf}
+                name={cpf}  //TODO Why I need this?
                 onChange={event => setCpf(event.target.value)}
                 error={!error.cpf.status}
                 helperText={error.cpf.text}
-                onBlur={event => checkCpf(event.target.value)}
+                onBlur={check}
             />
 
             <FormControlLabel label='Promotions' control={

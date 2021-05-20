@@ -5,13 +5,13 @@ import PersonalData from './PersonalData';
 import UserData from './UserData';
 
 
-function SubscribeForm({ submitForm }) {
+function SubscribeForm({ submitForm, validation }) {
     const [currentStep, setCurrentStep] = useState(0);
     const [formData, setFormData] = useState({});
     const pages = [
-        <UserData nextStep={collectData} />,
-        <PersonalData nextStep={collectData} />,
-        <Address nextStep={collectData} />,
+        <UserData nextStep={collectData} validation={validation} />,
+        <PersonalData nextStep={collectData} validation={validation} />,
+        <Address nextStep={collectData} validation={validation} />,
         <Typography variant='h5'>thanks for subscribing</Typography>
     ];
 
