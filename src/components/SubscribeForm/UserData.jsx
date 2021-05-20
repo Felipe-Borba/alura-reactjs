@@ -38,7 +38,7 @@ function UserData({ nextStep }) {
                 variant='outlined'
                 margin='normal'
                 fullWidth
-                //required //TODO uncomment 
+                required
                 value={email}
                 onChange={event => setEmail(event.target.value)}
             />
