@@ -12,21 +12,33 @@ function PersonalData({ nextStep, validation }) {
 
     function check(event) {
         const { id, value } = event.target;
-        let newSate = {...error};
+        let newSate = { ...error };
         newSate[id] = validation[id](value);
         setError(newSate);
+    }
+
+    function verify() {
+        for (let field in error) {
+            if (!error[field].status) {
+                return false;
+            }
+        }
+        return true;
     }
 
     return (
         <form onSubmit={event => {
             event.preventDefault();
-            nextStep({ firstName, secondName, cpf, promotions, news, error });
+            if (verify()) {
+                nextStep({ firstName, secondName, cpf, promotions, news, error });
+            }
         }}>
             <TextField
                 id='firstName'
                 label='First name'
                 variant='outlined'
                 fullWidth
+                required
                 margin='normal'
                 name={firstName}
                 onChange={event => setFirstName(event.target.value)}
@@ -48,6 +60,7 @@ function PersonalData({ nextStep, validation }) {
                 variant='outlined'
                 fullWidth
                 margin='normal'
+                required
                 name={cpf}  //TODO Why I need this?
                 onChange={event => setCpf(event.target.value)}
                 error={!error.cpf.status}
@@ -74,7 +87,7 @@ function PersonalData({ nextStep, validation }) {
             } />
 
             <Button type='submit' variant="contained" color="primary" >
-                Submit
+                Next
             </Button>
 
         </form>
