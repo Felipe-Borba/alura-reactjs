@@ -1,4 +1,5 @@
 import React from 'react'
+import PosList from '../components/PosList'
 
 const Home = () => {
 
@@ -8,7 +9,7 @@ const Home = () => {
         <h2 className="titulo-pagina">Pet notícias</h2>
       </div>
       
-      
+      <PosList url={'/posts'}/>
 
     </main>
   )
