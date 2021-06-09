@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { search } from "../api/api";
 
-const PosList = ({ url }) => {
+const PostList = ({ url }) => {
 
     const [posts, setPosts] = useState([])
 
@@ -33,4 +33,4 @@ const PosList = ({ url }) => {
     )
 }
 
-export default PosList
+export default PostList

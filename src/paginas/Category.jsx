@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import CategoryList from '../components/CategoryList'
-import PosList from '../components/PosList'
+import PostList from '../components/PostList'
 import { Route, useParams, useRouteMatch } from 'react-router'
 import { search } from '../api/api'
 import { Link } from 'react-router-dom'
@@ -43,7 +43,7 @@ const Category = () => {
 
             <switch>               
                 <Route exact path={`${path}/`}>
-                    <PosList url={`/posts?categoria=${id}`} />
+                    <PostList url={`/posts?categoria=${id}`} />
                 </Route>
 
                 <Route path={`${path}/:subCategory`}>

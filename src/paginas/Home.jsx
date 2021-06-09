@@ -1,6 +1,6 @@
 import React from 'react'
 import CategoryList from '../components/CategoryList'
-import PosList from '../components/PosList'
+import PostList from '../components/PostList'
 
 const Home = () => {
 
@@ -10,7 +10,7 @@ const Home = () => {
         <h2 className="titulo-pagina">Pet notícias</h2>
       </div>
       <CategoryList />
-      <PosList url={'/posts'} />
+      <PostList url={'/posts'} />
     </main>
   )
 }
