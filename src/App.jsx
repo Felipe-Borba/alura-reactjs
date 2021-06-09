@@ -7,6 +7,7 @@ import Sobre from './paginas/Sobre';
 import Page404 from './paginas/Page404'
 import NavBar from './components/NavBar'
 import Post from './paginas/Post';
+import Category from './paginas/Category';
 
 function App() {
 
@@ -21,6 +22,10 @@ function App() {
 
         <Route path='/sobre'>
           <Sobre />
+        </Route>
+
+        <Route path='/categoria/:id'>
+          <Category />
         </Route>
 
         <Route path='/posts/:id'>
