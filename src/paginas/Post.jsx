@@ -13,7 +13,7 @@ const Post = () => {
             .catch(() => {
                 history.push('/404')
             })
-    }, [id])
+    }, [history, id])
 
     return (
         <main className='container flex flex--centro'>
