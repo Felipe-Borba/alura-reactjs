@@ -8,13 +8,15 @@ import {
 } from "./variaveis";
 
 export const temaClaro = {
-    body: fundoClaro,
-    inside: ConteudoClaro,
-    text: textoFundoClaro,
+  body: fundoClaro,
+  inside: ConteudoClaro,
+  text: textoFundoClaro,
+  filter: "",
 };
 
 export const temaEscuro = {
-    body: fundoEscuro,
-    inside: ConteudoEscuro,
-    text: textoFundoEscuro,
+  body: fundoEscuro,
+  inside: ConteudoEscuro,
+  text: textoFundoEscuro,
+  filter: "invert(100%)",
 };
